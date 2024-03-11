@@ -6,7 +6,6 @@ public class Wooman : MonoBehaviour
 {
     public void Win()
     {
-        Debug.Log("Wooman end");
         gameObject.GetComponent<Animator>().Play("Base Layer.Kiss");
     }
 

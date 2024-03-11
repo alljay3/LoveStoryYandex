@@ -5,18 +5,38 @@ using UnityEngine;
 public class MainScript : MonoBehaviour
 {
     [SerializeField] private int NheatStart = 0;
+    [SerializeField] private int HeartClick = 1;
     [SerializeField] GameObject Men;
     [SerializeField] GameObject Wooman;
     [SerializeField] GameObject WinUI, LoseUI;
+    static public int SHeartClick = 1;
     void Start()
     {
         StateLevel.NHears = NheatStart;
+        SHeartClick = HeartClick;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void OnApplicationFocus(bool hasFocus)
+    {
+        Silence(!hasFocus);
+    }
+
+    void OnApplicationPause(bool isPaused)
+    {
+        Silence(isPaused);
+    }
+
+    private void Silence(bool silence)
+    {
+        AudioListener.pause = silence;
+        // Or / And
+        AudioListener.volume = silence ? 0 : 1;
     }
 
     public void Win()

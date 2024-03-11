@@ -31,7 +31,7 @@ public class HeartScript : MonoBehaviour
         GameObject.FindGameObjectWithTag("OtherSound").GetComponent<AudioSource>().clip = Clip;
         GameObject.FindGameObjectWithTag("OtherSound").GetComponent<AudioSource>().Play();
 
-        StateLevel.NHears += 1;
+        StateLevel.NHears += MainScript.SHeartClick;
         Destroy(gameObject);
     }
 }

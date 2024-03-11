@@ -27,12 +27,18 @@ public class Cloud : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(SpawnTimeHeart - 1, SpawnTimeHeart + 1));
             if (_end)
                 yield break;
-            Vector3 p = transform.position;
-            p.z -= 2;
-            GameObject heart = Instantiate(HeartPrefab, p, Quaternion.identity) as GameObject;
-            Vector3 rotate = heart.transform.eulerAngles;
-            rotate.x = -90;
-            heart.transform.rotation = Quaternion.Euler(rotate);
+            if (transform.position.x > 7.25f || transform.position.x < -8.3f)
+            {
+            }
+            else
+            {
+                Vector3 p = transform.position;
+                p.z -= 2;
+                GameObject heart = Instantiate(HeartPrefab, p, Quaternion.identity) as GameObject;
+                Vector3 rotate = heart.transform.eulerAngles;
+                rotate.x = -90;
+                heart.transform.rotation = Quaternion.Euler(rotate);
+            }
         }
     }
 

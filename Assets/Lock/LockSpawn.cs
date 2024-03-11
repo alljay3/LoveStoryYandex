@@ -7,6 +7,9 @@ public class LockSpawn : MonoBehaviour
     [SerializeField] GameObject LockPrefab;
     [SerializeField] float DefaultSpeed;
     [SerializeField] float DefaultTimeSpawn;
+    [SerializeField] float TimeReduce = 20;
+    [SerializeField] float WeithReuce = 0.05f;
+    [SerializeField] float TimeLimit = 0.3f;
     private float _timeSpawn;
     void Start()
     {
@@ -23,10 +26,10 @@ public class LockSpawn : MonoBehaviour
 
     IEnumerator IETime()
     {
-        while (_timeSpawn > 0.5f)
+        while (_timeSpawn > TimeLimit)
         {
-            yield return new WaitForSeconds(20);
-            _timeSpawn -= 0.05f;
+            yield return new WaitForSeconds(TimeReduce);
+            _timeSpawn -= WeithReuce;
         }
     }
 

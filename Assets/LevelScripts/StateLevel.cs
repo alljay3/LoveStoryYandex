@@ -14,7 +14,7 @@ public class StateLevel : MonoBehaviour
         }
         set
         {
-            _nHears = _nHears >= 99999 ? 99999 : value;
+            _nHears = value > 99999 ? 99999 : value;
         }
     }
 }

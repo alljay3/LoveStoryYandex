@@ -30,4 +30,10 @@ public class Pause : MonoBehaviour
         GameObject.FindGameObjectWithTag("UISound").GetComponent<AudioSource>().Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void NextLevel(string namescene)
+    {
+        GameObject.FindGameObjectWithTag("UISound").GetComponent<AudioSource>().Play();
+        SceneManager.LoadScene(namescene);
+    }
 }
