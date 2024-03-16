@@ -6,6 +6,8 @@
     <title>Unity WebGL Player | LoveStory</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <!-- Yandex Games SDK -->
+    <script src="https://yandex.ru/games/sdk/v2"></script>
   </head>
   <body style = "background-color: pink;">
         <div id="unity-container" style="position: absolute; width: min(calc(100vh * (16/9)), 100vw); max-width: 100%; max-height: 100%; height: auto; aspect-ratio: 16/9; display: block; background: pink;">
@@ -23,6 +25,32 @@
         <div id="unity-build-title">LoveStory</div>
       </div>
     </div>
+    
+    <script>
+       YaGames
+    .init()
+    .then(ysdk => {
+        console.log('Yandex SDK initialized');
+        window.ysdk = ysdk;
+    });
+
+    function ShowAd() {
+
+          ysdk.adv.showFullscreenAdv({
+    callbacks: {
+        onClose: function(wasShown) {
+          // some action after close
+        },
+        onError: function(error) {
+          // some action on error
+        }
+    }
+    });
+
+     }
+
+    
+    </script>
     <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
@@ -117,49 +145,6 @@
     </script>
   </body>
 
-<head>
 
-
-
-<!-- Yandex Games SDK -->
-
-<script src="https://yandex.ru/games/sdk/v2"></script>
-
-<script>
-
-YaGames
-	.init({
-
-		adv:    {
-
-			onAdvClose: wasShown => {
-
-			console.info('adv closed!');
-
-						}
-
-			}
-
-		})
-
-	.then(ysdk => {
-
-		ysdk.adv.showFullscreenAdv();
-
-		window.ysdk = ysdk;
-
-	});
-
-
-function ShowAd() {
-
-window.ysdk.adv.showFullscreenAdv();
-
-}
-
-
-</script>
-
-</head>
 
 </html>

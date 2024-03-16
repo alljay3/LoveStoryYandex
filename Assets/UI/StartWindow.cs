@@ -5,6 +5,7 @@ using UnityEngine;
 public class StartWindow : MonoBehaviour
 {
     [SerializeField] AudioSource[] AudioSourceObjs;
+    [SerializeField] int level = 0;
     void Start()
     {
         StateLevel.IsGamePause = true;
@@ -16,6 +17,8 @@ public class StartWindow : MonoBehaviour
         {
             i.enabled = false;
         }
+
+        PlayerPrefs.SetInt("start", level);
 
     }
 

@@ -10313,6 +10313,7 @@ MonoBehaviour:
   - {fileID: 576580334}
   - {fileID: 168512520}
   - {fileID: 1117600074}
+  level: 1
 --- !u!1 &2136729291
 GameObject:
   m_ObjectHideFlags: 0
