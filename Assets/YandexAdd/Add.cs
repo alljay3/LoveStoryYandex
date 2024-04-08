@@ -7,6 +7,5 @@ public class Add : MonoBehaviour
     static public void Show()
     {
         Application.ExternalCall("ShowAd");
-        Debug.Log("Обычная реклама");
     }
 }

@@ -2,27 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FirstScene : MonoBehaviour
 {
+    [SerializeField] TMPro.TextMeshProUGUI TextLoad;
     private void Start()
     {
         if (PlayerPrefs.GetInt("start") == 0)
         {
-            SceneManager.LoadScene("level1");
+            SceneManager.LoadSceneAsync("level1");
         }
         else if (PlayerPrefs.GetInt("start") == 1)
         {
-            SceneManager.LoadScene("level2");
+            SceneManager.LoadSceneAsync("level2");
         }
         else if (PlayerPrefs.GetInt("start") == 2)
         {
-            SceneManager.LoadScene("level3");
+            SceneManager.LoadSceneAsync("level3");
         }
         else
         {
-            SceneManager.LoadScene("level1");
+            SceneManager.LoadSceneAsync("level1");
         }
-
+        StartCoroutine(Tochka());
+        
+    }
+    IEnumerator Tochka()
+    {
+        while (true)
+        {
+            TextLoad.text = "Загрузка .";
+            yield return new WaitForSeconds(0.2f);
+            TextLoad.text = "Загрузка . .";
+            yield return new WaitForSeconds(0.2f);
+            TextLoad.text = "Загрузка . . .";
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 }

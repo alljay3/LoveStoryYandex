@@ -55,7 +55,6 @@ public class MainScript : MonoBehaviour
         foreach (GameObject i in Hearts)
         {
             Destroy(i);
-            Debug.Log(i);
         }
         foreach (GameObject i in Latch)
         {
@@ -79,7 +78,6 @@ public class MainScript : MonoBehaviour
         foreach (GameObject i in Hearts)
         {
             Destroy(i);
-            Debug.Log(i);
         }
         foreach (GameObject i in Latch)
         {
